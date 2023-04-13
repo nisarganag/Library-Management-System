@@ -15,7 +15,6 @@ public class ConnectionClass {
     } 
   public static void main(String[] args) {
     new ConnectionClass();
-    System.out.println("Connection Established");
   } 
 }
 
