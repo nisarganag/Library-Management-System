@@ -71,7 +71,7 @@ public class AddConferences extends JFrame implements ActionListener{
         l4=new JLabel("Co-authors (Internal)");
         l8=new JLabel("Co-authors (External)");
         l5=new JLabel("Page Number");
-        l6=new JLabel("Date");
+        l6=new JLabel("Date (YYYY-MM-DD)");
         l7=new JLabel("Location");
 
         l1.setHorizontalAlignment(JLabel.CENTER);
@@ -143,8 +143,18 @@ public class AddConferences extends JFrame implements ActionListener{
 
     }
     public void actionPerformed(ActionEvent e) {
+        Pattern p2=Pattern.compile("[a-zA-Z]+");
         String name=tf1.getText();
+        Matcher m2=p2.matcher(name);
+        if(!m2.matches()){
+            JOptionPane.showMessageDialog(null, "Name cannot be Empty or Number");
+            return;}
+        Pattern p3=Pattern.compile("[a-zA-Z]+");
         String corrAuth=tf2.getText();
+        Matcher m3=p3.matcher(corrAuth);
+        if(!m3.matches()){
+            JOptionPane.showMessageDialog(null, "Corresponding Author field cannot be Empty or Number");
+            return;}
         String coAuthIn=tf3.getText();
         String coAuthEx=tf7.getText();
         Pattern p=Pattern.compile("[0-9]+");

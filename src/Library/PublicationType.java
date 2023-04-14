@@ -76,15 +76,15 @@ public class PublicationType extends JFrame implements ActionListener{
                 this.dispose();
               }
               else if(s.equals("Book Chapters")){
-                // new AddBookChapters().setVisible(true);
+                new AddBookChapters().setVisible(true);
                 this.dispose();
               }
               else if(s.equals("Books")){
-                // new AddBooks().setVisible(true);
+                new AddBooks().setVisible(true);
                 this.dispose();
               }
               else if(s.equals("Others")){
-                // new AddOthers().setVisible(true);
+                new AddOthers().setVisible(true);
                 this.dispose();
               }
        }
