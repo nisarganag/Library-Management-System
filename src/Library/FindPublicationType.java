@@ -72,7 +72,7 @@ public class FindPublicationType extends JFrame implements ActionListener{
                 this.dispose();
               }
               else if(s.equals("Journals")){
-                // new FindJournals().setVisible(true);
+                new FindJournals().setVisible(true);
                 this.dispose();
               }
               else if(s.equals("Book Chapters")){
