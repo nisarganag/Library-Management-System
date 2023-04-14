@@ -146,13 +146,13 @@ public class AddBooks extends JFrame implements ActionListener{
         Pattern p2=Pattern.compile("[a-zA-Z]+");
         String name=tf1.getText();
         Matcher m2=p2.matcher(name);
-        if(!m2.matches()){
+        if(!m2.matches()&&e.getSource()!=bt2){
             JOptionPane.showMessageDialog(null, "Name cannot be Empty or Number");
             return;}
         Pattern p4=Pattern.compile("[a-zA-Z]+");
         String corrAuth=tf2.getText();
         Matcher m4=p4.matcher(corrAuth);
-        if(!m4.matches()){
+        if(!m4.matches()&&e.getSource()!=bt2){
             JOptionPane.showMessageDialog(null, "Corresponding Author field cannot be Empty or Number");
             return;}
         String coAuthIn=tf3.getText();
@@ -160,7 +160,7 @@ public class AddBooks extends JFrame implements ActionListener{
         Pattern p3=Pattern.compile("ISBN(?:-13)?:?\\s*(?=.{17}$)97(?:8|9)([ -])\\d{1,5}\\1\\d{1,7}\\1\\d{1,6}\\1\\d$");
         String isbnno=tf9.getText();
         Matcher m3=p3.matcher(isbnno);
-        if(!m3.matches()){
+        if(!m3.matches()&&e.getSource()!=bt2){
             JOptionPane.showMessageDialog(null, "Please enter valid ISBN Number");
             return;}
         String pub=tf4.getText();
@@ -170,7 +170,7 @@ public class AddBooks extends JFrame implements ActionListener{
         + "|^(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$");    
         String date=tf5.getText();
         Matcher m1=p1.matcher(date);
-        if(!m1.matches()){
+        if(!m1.matches()&&e.getSource()!=bt2){
             JOptionPane.showMessageDialog(null, "Please enter valid Date");
             return;}
 
