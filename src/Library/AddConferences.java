@@ -2,17 +2,39 @@ package Library;
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
+import java.sql.*;
 public class AddConferences extends JFrame implements ActionListener{
     JLabel l1,l2,l3,l4,l5,l6,l7;
     JButton bt1,bt2;
     JPanel p1,p2;
     Font f,f1,f2;
     JTextField tf1,tf2,tf3,tf4,tf5,tf6;
+    String []coAuth=new String[1024];
+    int i=0;
     AddConferences(){
         super("Add Conferences");
+        
         setLocation(0,0);
         setSize(650,400);
-
+        
+        ConnectionClass obj1=new ConnectionClass();
+        String query="select username from faculty";
+        try {
+            Statement stm=obj1.con.createStatement();
+            ResultSet rs=stm.executeQuery(query);
+            while(rs.next()){
+                String coAuthor=rs.getString("username");
+                
+                
+                coAuth[i++]=coAuthor;
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // for(int j=0;j<i;j++)
+        //     System.out.println(coAuth[j]);
+       
         f=new Font("Arial",Font.BOLD,25);
         f1=new Font("Helvetica",Font.BOLD,20);
         f2=new Font("Tahoma",Font.PLAIN,20);
