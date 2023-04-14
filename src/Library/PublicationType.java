@@ -68,7 +68,7 @@ public class PublicationType extends JFrame implements ActionListener{
        if(e.getSource()==cb1){
               String s=(String)cb1.getSelectedItem();
               if(s.equals("Conferences")){
-                // new AddConferences().setVisible(true);
+                new AddConferences().setVisible(true);
                 this.dispose();
               }
               else if(s.equals("Journals")){
