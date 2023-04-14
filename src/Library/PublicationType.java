@@ -8,7 +8,7 @@ public class PublicationType extends JFrame implements ActionListener{
     JPanel p1,p2,p3;
     Font f,f1,f2;
     
-    String s1[]={"Book","Journal","Magazine","Newspaper"};
+    String s1[]={"Conferences","Journals","Book Chapters","Books","Others"};
     JComboBox<String> cb1 = new JComboBox<>(s1);
     
     
@@ -67,20 +67,24 @@ public class PublicationType extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
        if(e.getSource()==cb1){
               String s=(String)cb1.getSelectedItem();
-              if(s.equals("Book")){
-                // new AddBook().setVisible(true);
+              if(s.equals("Conferences")){
+                // new AddConferences().setVisible(true);
                 this.dispose();
               }
-              else if(s.equals("Journal")){
-                // new AddJournal().setVisible(true);
+              else if(s.equals("Journals")){
+                // new AddJournals().setVisible(true);
                 this.dispose();
               }
-              else if(s.equals("Magazine")){
-                // new AddMagazine().setVisible(true);
+              else if(s.equals("Book Chapters")){
+                // new AddBookChapters().setVisible(true);
                 this.dispose();
               }
-              else if(s.equals("Newspaper")){
-                // new AddNewspaper().setVisible(true);
+              else if(s.equals("Books")){
+                // new AddBooks().setVisible(true);
+                this.dispose();
+              }
+              else if(s.equals("Others")){
+                // new AddOthers().setVisible(true);
                 this.dispose();
               }
        }
