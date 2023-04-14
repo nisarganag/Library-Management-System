@@ -8,21 +8,21 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.sql.*;
-public class AddConferences extends JFrame implements ActionListener{
-    JLabel l1,l2,l3,l4,l5,l6,l7,l8;
+public class AddJournals extends JFrame implements ActionListener{
+    JLabel l1,l2,l3,l4,l5,l6,l8,l9,l10;
     JButton bt1,bt2;
     JPanel p1,p2;
     Font f,f1,f2;
-    JTextField tf1,tf2,tf3,tf4,tf5,tf6,tf7;
+    JTextField tf1,tf2,tf3,tf4,tf5,tf7,tf8,tf9;
     JList<String> list;
     
     String []coAuth=new String[1024];
     int i=0;
-    AddConferences(){
-        super("Add Conferences");
+    AddJournals(){
+        super("Add Journals");
         
         setLocation(0,0);
-        setSize(700,440);
+        setSize(700,450);
         
         ConnectionClass obj1=new ConnectionClass();
         String query="select username from faculty";
@@ -65,14 +65,15 @@ public class AddConferences extends JFrame implements ActionListener{
         f1=new Font("Helvetica",Font.BOLD,20);
         f2=new Font("Tahoma",Font.PLAIN,20);
 
-        l1=new JLabel("Add Conferences");
+        l1=new JLabel("Add Journals");
         l2=new JLabel("Name");
         l3=new JLabel("Corresponding Author");
         l4=new JLabel("Co-authors (Internal)");
         l8=new JLabel("Co-authors (External)");
         l5=new JLabel("Page Number");
+        l9=new JLabel("Volume Number");
+        l10=new JLabel("Issue Number");
         l6=new JLabel("Date");
-        l7=new JLabel("Location");
 
         l1.setHorizontalAlignment(JLabel.CENTER);
         l1.setForeground(Color.WHITE);
@@ -82,8 +83,9 @@ public class AddConferences extends JFrame implements ActionListener{
         tf3=new JTextField();
         tf4=new JTextField();
         tf5=new JTextField();
-        tf6=new JTextField();
         tf7=new JTextField();
+        tf8=new JTextField();
+        tf9=new JTextField();
 
         bt1=new JButton("Add Conference");
         bt2=new JButton("Cancel");
@@ -101,17 +103,19 @@ public class AddConferences extends JFrame implements ActionListener{
         l4.setFont(f1);
         l5.setFont(f1);
         l6.setFont(f1);
-        l7.setFont(f1);
         jcp.setFont(f1);
         l8.setFont(f1);
+        l9.setFont(f1);
+        l10.setFont(f1);
 
         tf1.setFont(f1);
         tf2.setFont(f1);
         tf3.setFont(f1);
         tf4.setFont(f1);
         tf5.setFont(f1);
-        tf6.setFont(f1);
         tf7.setFont(f1);
+        tf8.setFont(f1);
+        tf9.setFont(f1);
 
         p1=new JPanel();
         p1.setLayout(new GridLayout(1,1,10,10));
@@ -130,10 +134,12 @@ public class AddConferences extends JFrame implements ActionListener{
         p2.add(tf7);
         p2.add(l5);
         p2.add(tf4);
+        p2.add(l9);
+        p2.add(tf8);
+        p2.add(l10);
+        p2.add(tf9);
         p2.add(l6);
         p2.add(tf5);
-        p2.add(l7);
-        p2.add(tf6);
         p2.add(bt1);
         p2.add(bt2);
 
@@ -153,6 +159,19 @@ public class AddConferences extends JFrame implements ActionListener{
         if(!m.matches()){
             JOptionPane.showMessageDialog(null, "Please enter valid Page Number");
             return;}
+        Pattern p2=Pattern.compile("[0-9]+");
+        String volno=tf8.getText();
+        Matcher m2=p2.matcher(volno);
+        if(!m2.matches()){
+            JOptionPane.showMessageDialog(null, "Please enter valid Volume Number");
+            return;}
+        Pattern p3=Pattern.compile("[0-9]+");
+        String issno=tf9.getText();
+        Matcher m3=p3.matcher(issno);
+        if(!m3.matches()){
+            JOptionPane.showMessageDialog(null, "Please enter valid Issue Number");
+            return;}
+        
         Pattern p1=Pattern.compile("^((2000|2400|2800|(19|2[0-9])(0[48]|[2468][048]|[13579][26]))-02-29)$" 
         + "|^(((19|2[0-9])[0-9]{2})-02-(0[1-9]|1[0-9]|2[0-8]))$"
         + "|^(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))$" 
@@ -162,12 +181,11 @@ public class AddConferences extends JFrame implements ActionListener{
         if(!m1.matches()){
             JOptionPane.showMessageDialog(null, "Please enter valid Date");
             return;}
-        String location=tf6.getText();
 
         if(e.getSource()==bt1){
             try {
                 ConnectionClass obj=new ConnectionClass();
-                String s="insert into conference(Name,CorrespondingAuthor,CoAuthorInternal,CoAuthorExternal,PageNumber,Date,Location) values('"+name+"','"+corrAuth+"','"+coAuthIn+"','"+coAuthEx+"','"+pgno+"','"+date+"','"+location+"')";
+                String s="insert into journal(Name,CorrespondingAuthor,CoAuthorInternal,CoAuthorExternal,PageNumber,VolumeNumber,IssueNumber,Date) values('"+name+"','"+corrAuth+"','"+coAuthIn+"','"+coAuthEx+"','"+pgno+"','"+volno+"','"+issno+"','"+date+"')";
                 int aa=obj.stm.executeUpdate(s);
                 
                 if(aa==1){
@@ -189,6 +207,6 @@ public class AddConferences extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) {
-        new AddConferences().setVisible(true);
+        new AddJournals().setVisible(true);
     }
 }
