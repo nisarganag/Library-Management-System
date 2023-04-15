@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 import java.sql.*;
-public class Faculty extends JFrame implements ActionListener{
+public class Faculty extends JFrame implements ActionListener,KeyListener{
     JLabel l1,l2,l3;
     JButton bt1,bt2;
     JPanel p1,p2;
@@ -33,6 +33,8 @@ public class Faculty extends JFrame implements ActionListener{
 
         tf1=new JTextField();
         pf1=new JPasswordField();
+        tf1.addKeyListener(this);
+        pf1.addKeyListener(this);
 
         
         l1.setFont(f);
@@ -93,6 +95,38 @@ public class Faculty extends JFrame implements ActionListener{
         if(e.getSource()==bt2){
             this.setVisible(false);
         }
+    }
+    @Override
+    public void keyTyped(KeyEvent e) {
+        String username=tf1.getText();
+        char[] pass=pf1.getPassword();
+        char key=e.getKeyChar();
+        if(key==KeyEvent.VK_ENTER){
+            try {
+                ConnectionClass obj=new ConnectionClass();
+                String pass1=new String(pass);
+                String s="select username,password from faculty where username='"+username+"'and password='"+pass1+"'";
+                ResultSet rest=obj.stm.executeQuery(s);
+                if(rest.next()){
+                    
+                    new FacultySection().setVisible(true);
+                    this.setVisible(false);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Your Username and Password is wrong");
+                    this.setVisible(false);
+                    this.setVisible(true);
+                }
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+        }
+    }
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+    @Override
+    public void keyReleased(KeyEvent e) {
     }
     public static void main(String[] args) {
         new Faculty().setVisible(true);

@@ -25,9 +25,6 @@ public class FacultySection extends JFrame implements ActionListener{
         JMenu men1=new JMenu("Add Info");
         JMenuItem ment1=new JMenuItem("Add Publications");
 
-        JMenu men2=new JMenu("View Info");
-        JMenuItem ment2=new JMenuItem("View Publications");
-
         JMenu men3=new JMenu("Find Info");
         JMenuItem ment3=new JMenuItem("Find Publications");
 
@@ -35,27 +32,22 @@ public class FacultySection extends JFrame implements ActionListener{
         JMenuItem ment4=new JMenuItem("Logout");
 
         men1.add(ment1);
-        men2.add(ment2);
         men3.add(ment3);
         men4.add(ment4);
 
         m1.add(men1);
-        m1.add(men2);
         m1.add(men3);
         m1.add(men4);
 
         men1.setFont(f);
-        men2.setFont(f);
         men3.setFont(f);
         men4.setFont(f);
 
         ment1.setFont(f1);
-        ment2.setFont(f1);
         ment3.setFont(f1);
         ment4.setFont(f1);
 
         ment1.addActionListener(this);
-        ment2.addActionListener(this);
         ment3.addActionListener(this);
         ment4.addActionListener(this);
 
@@ -68,10 +60,6 @@ public class FacultySection extends JFrame implements ActionListener{
         if(comnd.equals("Add Publications")){
             
             new PublicationType().setVisible(true);
-        }
-        else if(comnd.equals("View Publications")){
-            
-            new ViewPublication().setVisible(true);
         }
         else if(comnd.equals("Find Publications")){
             

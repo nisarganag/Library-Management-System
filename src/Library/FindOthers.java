@@ -185,6 +185,12 @@ public class FindOthers extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==bt1){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String name=tf1.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -218,6 +224,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt2){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String corrAuth=tf2.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -250,6 +262,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt3){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String coAuthIn=tf3.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -282,6 +300,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt4){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String coAuthEx=tf4.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -314,6 +338,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt5){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String pgno=tf5.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -346,6 +376,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt9){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String volno=tf10.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -378,6 +414,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt10){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String issno=tf11.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -410,6 +452,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt7){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String chapno=tf8.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -442,6 +490,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt8){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String isbnno=tf9.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -474,6 +528,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt11){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String loc=tf12.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -506,6 +566,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt12){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String pub=tf13.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
@@ -538,6 +604,12 @@ public class FindOthers extends JFrame implements ActionListener{
             revalidate();
         }
         else if(e.getSource()==bt6){
+            for (int k = 0; k < y.length; k++) {
+                for (int l = 0; l < y[k].length; l++) {
+                    y[k][l]=null;
+                }
+            }
+            int i=0,j=0;
             String date1=tf6.getText();
             String date2=tf7.getText();
             try {
