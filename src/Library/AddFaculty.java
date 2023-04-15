@@ -14,7 +14,7 @@ public class AddFaculty extends JFrame implements ActionListener{
     AddFaculty(){
         super("Add Faculty");
         setLocation(450,400);
-        setSize(650,400);
+        setSize(800,400);
 
         f=new Font("Arial",Font.BOLD,25);
         f1=new Font("Helvetica",Font.BOLD,20);
@@ -93,18 +93,18 @@ public class AddFaculty extends JFrame implements ActionListener{
             JOptionPane.showMessageDialog(null, "Password must be 6-15 characters long");
             return;
         }
-        Pattern p3=Pattern.compile("^[a-zA-Z]+[a-zA-Z0-9.]+@[a-zA-Z]+\\.[a-zA-Z]+$");
+        Pattern p3=Pattern.compile("^[a-zA-Z]*[a-zA-Z0-9.]+@[a-zA-Z]+\\.[a-zA-Z.]+$");
         String email=tf2.getText();
         Matcher m3=p3.matcher(email);
         if(!m3.matches()){
-            JOptionPane.showMessageDialog(null, "Invalid Email");
+            JOptionPane.showMessageDialog(null, "Email should be of type 'someone@something.something'");
             return;
         }
         Pattern p4=Pattern.compile("^[1-9][0-9]{9}$");
         String contact=tf3.getText();
         Matcher m4=p4.matcher(contact);
         if(!m4.matches()){
-            JOptionPane.showMessageDialog(null, "Invalid Contact");
+            JOptionPane.showMessageDialog(null, "Contact must be 10 digits long and start with a non-zero digit");
             return;
         }
 

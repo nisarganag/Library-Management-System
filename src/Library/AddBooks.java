@@ -143,13 +143,13 @@ public class AddBooks extends JFrame implements ActionListener{
 
     }
     public void actionPerformed(ActionEvent e) {
-        Pattern p2=Pattern.compile("[a-zA-Z]+");
+        Pattern p2=Pattern.compile("[a-zA-Z ]+");
         String name=tf1.getText();
         Matcher m2=p2.matcher(name);
         if(!m2.matches()&&e.getSource()!=bt2){
             JOptionPane.showMessageDialog(null, "Name cannot be Empty or Number");
             return;}
-        Pattern p4=Pattern.compile("[a-zA-Z]+");
+        Pattern p4=Pattern.compile("[a-zA-Z ]+");
         String corrAuth=tf2.getText();
         Matcher m4=p4.matcher(corrAuth);
         if(!m4.matches()&&e.getSource()!=bt2){

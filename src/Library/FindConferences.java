@@ -131,7 +131,7 @@ public class FindConferences extends JFrame implements ActionListener{
             String name=tf1.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
-                String q="select * from conference where Name='"+name+"'";
+                String q="select * from conference where Name like '%"+name+"%'";
                 ResultSet rest=obj.stm.executeQuery(q);
             while(rest.next()){
                 y[i][j++]=rest.getString("Name");
@@ -165,7 +165,7 @@ public class FindConferences extends JFrame implements ActionListener{
             String corrAuth=tf2.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
-                String q="select * from conference where CorrespondingAuthor='"+corrAuth+"'";
+                String q="select * from conference where CorrespondingAuthor like '%"+corrAuth+"%'";
                 ResultSet rest=obj.stm.executeQuery(q);
             while(rest.next()){
                 y[i][j++]=rest.getString("Name");
@@ -231,7 +231,7 @@ public class FindConferences extends JFrame implements ActionListener{
             String coAuthEx=tf4.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
-                String q="select * from conference where CoAuthorExternal='"+coAuthEx+"'";
+                String q="select * from conference where CoAuthorExternal like '%"+coAuthEx+"%'";
                 ResultSet rest=obj.stm.executeQuery(q);
             while(rest.next()){
                 y[i][j++]=rest.getString("Name");
@@ -331,7 +331,7 @@ public class FindConferences extends JFrame implements ActionListener{
             String loc=tf8.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
-                String q="select * from conference where Location='"+loc+"'";
+                String q="select * from conference where Location like '%"+loc+"%'";
                 ResultSet rest=obj.stm.executeQuery(q);
             while(rest.next()){
                 y[i][j++]=rest.getString("Name");

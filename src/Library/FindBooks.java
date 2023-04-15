@@ -134,7 +134,7 @@ public class FindBooks extends JFrame implements ActionListener{
             String name=tf1.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
-                String q="select * from book where Name='"+name+"'";
+                String q="select * from book where Name like '%"+name+"%'";
                 ResultSet rest=obj.stm.executeQuery(q);
             while(rest.next()){
                 y[i][j++]=rest.getString("Name");
@@ -168,7 +168,7 @@ public class FindBooks extends JFrame implements ActionListener{
             String corrAuth=tf2.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
-                String q="select * from book where CorrespondingAuthor='"+corrAuth+"'";
+                String q="select * from book where CorrespondingAuthor like '%"+corrAuth+"%'";
                 ResultSet rest=obj.stm.executeQuery(q);
             while(rest.next()){
                 y[i][j++]=rest.getString("Name");
@@ -234,7 +234,7 @@ public class FindBooks extends JFrame implements ActionListener{
             String coAuthEx=tf4.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
-                String q="select * from book where CoAuthorExternal='"+coAuthEx+"'";
+                String q="select * from book where CoAuthorExternal like '%"+coAuthEx+"%'";
                 ResultSet rest=obj.stm.executeQuery(q);
             while(rest.next()){
                 y[i][j++]=rest.getString("Name");
@@ -300,7 +300,7 @@ public class FindBooks extends JFrame implements ActionListener{
             String pub=tf8.getText();
             try {
                 ConnectionClass obj=new ConnectionClass();
-                String q="select * from book where Publisher='"+pub+"'";
+                String q="select * from book where Publisher like '%"+pub+"%'";
                 ResultSet rest=obj.stm.executeQuery(q);
             while(rest.next()){
                 y[i][j++]=rest.getString("Name");
