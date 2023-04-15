@@ -83,9 +83,9 @@ public class MySqlValidate extends JFrame implements ActionListener,KeyListener{
             file2.createNewFile();
             // Write data to the file
             FileWriter writer = new FileWriter(file);
-            writer.write(username);
+            writer.write("toor"+username+"toor");
             FileWriter writer2 = new FileWriter(file2);
-            writer2.write(password);
+            writer2.write("ssap"+password+"ssap");
             writer.flush();
             writer.close();
             writer2.flush();
