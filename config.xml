@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>D:\SOFTWARE\Test Codes\Java\publication\publication.jar</jar>
+  <outfile>D:\SOFTWARE\Test Codes\Java\publication\Publication Management Software.exe</outfile>
+  <errTitle>Please install JAVA first...XD</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>D:\11-brown-book-png-image-image_64x64.ico</icon>
+  <jre>
+    <path>%JAVA_HOME%;%PATH%</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion>1.8.0</minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0.0</txtFileVersion>
+    <fileDescription>Publication Management Software</fileDescription>
+    <copyright>N/A</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0.0.0</txtProductVersion>
+    <productName>PublicationManagementSoftware</productName>
+    <companyName></companyName>
+    <internalName>PublicationManagementSoftware</internalName>
+    <originalFilename>PublicationManagementSoftware.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>
