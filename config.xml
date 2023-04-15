@@ -4,7 +4,7 @@
   <headerType>gui</headerType>
   <jar>D:\SOFTWARE\Test Codes\Java\publication\publication.jar</jar>
   <outfile>D:\SOFTWARE\Test Codes\Java\publication\Publication Management System.exe</outfile>
-  <errTitle>Please install JAVA and MYSQL ...  : )</errTitle>
+  <errTitle>Please install JAVA and MYSQL : )</errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
