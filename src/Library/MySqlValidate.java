@@ -107,16 +107,15 @@ public class MySqlValidate extends JFrame implements ActionListener,KeyListener{
         String username = tf1.getText();
         String password = tf2.getText();
         try {
-            
             File file = new File("username.txt");
             file.createNewFile();
             File file2 = new File("password.txt");
             file2.createNewFile();
             // Write data to the file
             FileWriter writer = new FileWriter(file);
-            writer.write(username);
+            writer.write("toor"+username+"toor");
             FileWriter writer2 = new FileWriter(file2);
-            writer2.write(password);
+            writer2.write("ssap"+password+"ssap");
             writer.flush();
             writer.close();
             writer2.flush();
