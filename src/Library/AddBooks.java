@@ -143,13 +143,13 @@ public class AddBooks extends JFrame implements ActionListener{
 
     }
     public void actionPerformed(ActionEvent e) {
-        Pattern p2=Pattern.compile("[a-zA-Z ]+");
+        Pattern p2=Pattern.compile("^(?=\\S).*$");
         String name=tf1.getText();
         Matcher m2=p2.matcher(name);
         if(!m2.matches()&&e.getSource()!=bt2){
-            JOptionPane.showMessageDialog(null, "Name cannot be Empty or Number");
+            JOptionPane.showMessageDialog(null, "Name cannot be Empty");
             return;}
-        Pattern p4=Pattern.compile("[a-zA-Z ]+");
+        Pattern p4=Pattern.compile("^(?=\\S).*$");
         String corrAuth=tf2.getText();
         Matcher m4=p4.matcher(corrAuth);
         if(!m4.matches()&&e.getSource()!=bt2){
@@ -157,7 +157,7 @@ public class AddBooks extends JFrame implements ActionListener{
             return;}
         String coAuthIn=tf3.getText();
         String coAuthEx=tf7.getText();
-        Pattern p3=Pattern.compile("ISBN(?:-13)?:?\\s*(?=.{17}$)97(?:8|9)([ -])\\d{1,5}\\1\\d{1,7}\\1\\d{1,6}\\1\\d$");
+        Pattern p3=Pattern.compile("^(?=(?:\\d[- ]*){9}[\\dxX])(?:97[89][- ]?)?(?:\\d[- ]*){9}[\\dxX]$");
         String isbnno=tf9.getText();
         Matcher m3=p3.matcher(isbnno);
         if(!m3.matches()&&e.getSource()!=bt2){

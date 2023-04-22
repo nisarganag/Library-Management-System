@@ -150,17 +150,17 @@ public class AddJournals extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
         
-        Pattern p4=Pattern.compile("[a-zA-Z ]+");
+        Pattern p4=Pattern.compile("^(?=\\S).*$");
         String name=tf1.getText();
         Matcher m4=p4.matcher(name);
         if(!m4.matches()&&e.getSource()!=bt2){
-            JOptionPane.showMessageDialog(null, "Name cannot be Empty or Number");
+            JOptionPane.showMessageDialog(null, "Name cannot be Empty");
             return;}
-        Pattern p5=Pattern.compile("[a-zA-Z ]+");
+        Pattern p5=Pattern.compile("^(?=\\S).*$");
         String corrAuth=tf2.getText();
         Matcher m5=p5.matcher(corrAuth);
         if(!m5.matches()&&e.getSource()!=bt2){
-            JOptionPane.showMessageDialog(null, "Corresponding Author field cannot be Empty or Number");
+            JOptionPane.showMessageDialog(null, "Corresponding Author field cannot be Empty");
             return;}
         String coAuthIn=tf3.getText();
         String coAuthEx=tf7.getText();

@@ -143,17 +143,17 @@ public class AddConferences extends JFrame implements ActionListener{
 
     }
     public void actionPerformed(ActionEvent e) {
-        Pattern p2=Pattern.compile("[a-zA-Z ]+");
+        Pattern p2=Pattern.compile("^(?=\\S).*$");
         String name=tf1.getText();
         Matcher m2=p2.matcher(name);
         if(!m2.matches()&&e.getSource()!=bt2){
-            JOptionPane.showMessageDialog(null, "Name cannot be Empty or Number");
+            JOptionPane.showMessageDialog(null, "Name cannot be Empty");
             return;}
-        Pattern p3=Pattern.compile("[a-zA-Z ]+");
+        Pattern p3=Pattern.compile("^(?=\\S).*$");
         String corrAuth=tf2.getText();
         Matcher m3=p3.matcher(corrAuth);
         if(!m3.matches()&&e.getSource()!=bt2){
-            JOptionPane.showMessageDialog(null, "Corresponding Author field cannot be Empty or Number");
+            JOptionPane.showMessageDialog(null, "Corresponding Author field cannot be Empty");
             return;}
         String coAuthIn=tf3.getText();
         String coAuthEx=tf7.getText();

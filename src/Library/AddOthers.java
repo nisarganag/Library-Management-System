@@ -173,18 +173,18 @@ public class AddOthers extends JFrame implements ActionListener{
 
     }
     public void actionPerformed(ActionEvent e) {
-        Pattern p1=Pattern.compile("[A-Za-z ]+");
+        Pattern p1=Pattern.compile("^(?=\\S).*$");
         String name=tf1.getText();
         Matcher m1=p1.matcher(name);
         if(!m1.find()&&e.getSource()!=bt2){
-            JOptionPane.showMessageDialog(this,"Name cannot be Empty or Number");
+            JOptionPane.showMessageDialog(this,"Name cannot be Empty");
             return;
         }
-        Pattern p2=Pattern.compile("[A-Za-z ]+");
+        Pattern p2=Pattern.compile("^(?=\\S).*$");
         String corrAuth=tf2.getText();
         Matcher m2=p2.matcher(corrAuth);
         if(!m2.find()&&e.getSource()!=bt2){
-            JOptionPane.showMessageDialog(this,"Corresponding Author field cannot be Empty or Number");
+            JOptionPane.showMessageDialog(this,"Corresponding Author field cannot be Empty");
             return;
         }
         String coAuthIn=tf3.getText();
