@@ -89,7 +89,7 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Username");
 
-        jLabel5.setText("__________________________________________________");
+        jLabel5.setText("__________________________________");
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/icon/icons8_invisible_20px.png"))); // NOI18N
@@ -99,7 +99,7 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Password");
 
-        jLabel8.setText("__________________________________________________");
+        jLabel8.setText("__________________________________");
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Library/icon/icons8_user_20px_3.png"))); // NOI18N

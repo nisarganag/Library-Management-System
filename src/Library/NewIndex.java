@@ -158,7 +158,8 @@ public class NewIndex extends javax.swing.JFrame {
     }                                    
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    new FacultyLogin().setVisible(true);        // TODO add your handling code here:
+    new FacultyLogin().setVisible(true);
+    this.setVisible(false);        // TODO add your handling code here:
     }                                        
 
     /**

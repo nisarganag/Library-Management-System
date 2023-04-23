@@ -3,8 +3,8 @@
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
   <jar>D:\SOFTWARE\Test Codes\Java\publication\publication.jar</jar>
-  <outfile>D:\SOFTWARE\Test Codes\Java\publication\Publication Management System.exe</outfile>
-  <errTitle>Install JAVA and MYSQL</errTitle>
+  <outfile>D:\SOFTWARE\Test Codes\Java\publication\Publication Management.exe</outfile>
+  <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
