@@ -80,7 +80,7 @@ class Server {
                 String line;
                 while ((line = in.readLine()) != null) {
 					if(line.equals("Login")){
-						new Index().setVisible(true);
+						new NewIndex().setVisible(true);
 					}
                     
                 }
