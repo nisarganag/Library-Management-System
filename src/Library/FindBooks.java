@@ -45,14 +45,12 @@ public class FindBooks extends JFrame implements ActionListener{
         l5=new JLabel("View Book Chapter by ISBN Number");
         tf5=new JTextField();
 
-        
         l7=new JLabel("View Book Chapter by Publisher");
         tf8=new JTextField();
 
         l6=new JLabel("View Book Chapter by Date");
         tf6=new JTextField();
         tf7=new JTextField();
-
 
         l1.setFont(f1);
         tf1.setFont(f1);
@@ -76,7 +74,6 @@ public class FindBooks extends JFrame implements ActionListener{
         p3.setPreferredSize(new Dimension(200,200));
         p3.setLocation(860, 620);
        
-
         p1=new JPanel();
         p1.setLayout(new GridLayout(7,2,10,10));
         p1.add(l1);
@@ -91,7 +88,6 @@ public class FindBooks extends JFrame implements ActionListener{
         p1.add(tf5);
         p1.add(l7);
         p1.add(tf8);
-        
 
         p2=new JPanel();
         p2.setLayout(new GridLayout(1,3,10,0));
@@ -99,8 +95,6 @@ public class FindBooks extends JFrame implements ActionListener{
         p2.add(tf6);
         p2.add(tf7);
         p2.setPreferredSize(new Dimension(30,30));
-
-
         
         setLayout(new BorderLayout(10,10));
         add(sp,"North");
@@ -125,521 +119,71 @@ public class FindBooks extends JFrame implements ActionListener{
             String date1=tf6.getText();
             String date2=tf7.getText();
             String q="select * from book where ";
+            Boolean flag=false;
             try {
                 ConnectionClass obj=new ConnectionClass();
                 if(!name.equals("")){
                     q+="Name like '%"+name+"%'";
-                    if(!corrAuth.equals("")){
-                        q+=" and CorrespondingAuthor like '%"+corrAuth+"%'";
-                        if (!coAuthInt.equals("")){
-                            q+=" and CoAuthorInternal like '%"+coAuthInt+"%'";
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else if(coAuthInt.equals("")){
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else if(corrAuth.equals("")){
-                        if (!coAuthInt.equals("")){
-                            q+=" and CoAuthorInternal like '%"+coAuthInt+"%'";
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else if(coAuthInt.equals("")){
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                
-                    
+                    flag=true;
                 }
-                else if(name.equals("")){
-                    if(!corrAuth.equals("")){
-                        q+=" CorrespondingAuthor like '%"+corrAuth+"%'";
-                        if (!coAuthInt.equals("")){
-                            q+=" and CoAuthorInternal like '%"+coAuthInt+"%'";
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else if(coAuthInt.equals("")){
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                if(!corrAuth.equals("")){
+                    if(flag){
+                        q+=" and ";
                     }
-                    else if(corrAuth.equals("")){
-                        if (!coAuthInt.equals("")){
-                            q+=" CoAuthorInternal like '%"+coAuthInt+"%'";
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else if(coAuthInt.equals("")){
-                            if(!coAuthExt.equals("")){
-                                q+=" CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!isbn.equals("")){
-                                    q+=" and ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!isbn.equals("")){
-                                    q+=" ISBNNumber='"+isbn+"'";
-                                    if(!pub.equals("")){
-                                        q+=" and Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                }
-                                else if(isbn.equals("")){
-                                    if(!pub.equals("")){
-                                        q+=" Publisher like '%"+pub+"%'";
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                    }
-                                    else if(pub.equals("")){
-                                        if(!date1.equals("") && !date2.equals("")){
-                                            q+=" Date between '"+date1+"' and '"+date2+"'";
-                                        }
-                                        else{
-                                            JOptionPane.showMessageDialog(null,"Not Enough Input Given");
-                                            System.exit(0);
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                    q+="CorrespondingAuthor like '%"+corrAuth+"%'";
+                    flag=true;
+                }
+                if(!coAuthInt.equals("")){
+                    if(flag){
+                        q+=" and ";
                     }
-                  
+                    q+="CoAuthorInternal like '%"+coAuthInt+"%'";
+                    flag=true;
+                }
+                if(!coAuthExt.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="CoAuthorExternal like '%"+coAuthExt+"%'";
+                    flag=true;
+                }
+                if(!isbn.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="ISBNNumber like '%"+isbn+"%'";
+                    flag=true;
+                }
+                if(!pub.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="Publisher like '%"+pub+"%'";
+                    flag=true;
+                }
+                if(!date1.equals("")&&!date2.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="Date between '"+date1+"' and '"+date2+"'";
+                    flag=true;
+                }
+                else if(!date1.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="Date like '%"+date1+"%'";
+                    flag=true;
+                }
+                else if(!date2.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="Date like '%"+date2+"%'";
+                    flag=true;
+                }
+                if(!flag){
+                    q="select * from book";
                 }
                
                 ResultSet rest=obj.stm.executeQuery(q);

@@ -36,27 +36,21 @@ public class FindConferences extends JFrame implements ActionListener{
         l2=new JLabel("View Conference by Corresponding Author");
         tf2=new JTextField();
 
-
         l3=new JLabel("View Conference by Co-Author Internal");
         tf3=new JTextField();
-
 
         l4=new JLabel("View Conference by Co-Author External");
         tf4=new JTextField();
 
-
         l5=new JLabel("View Conference by Page Number");
         tf5=new JTextField();
-
 
         l6=new JLabel("View Conference by Date");
         tf6=new JTextField();
         tf7=new JTextField();
 
-
         l7=new JLabel("View Conference by Location");
         tf8=new JTextField();
-
 
         l1.setFont(f1);
         tf1.setFont(f1);
@@ -124,519 +118,73 @@ public class FindConferences extends JFrame implements ActionListener{
             String date2=tf7.getText();
             String loc=tf8.getText();
             String q="select * from conference where ";
+            boolean flag=false;
             try {
                 ConnectionClass obj=new ConnectionClass();
                 if(!name.equals("")){
                     q+="Name like '%"+name+"%'";
-                    if(!corrAuth.equals("")){
-                        q+=" and CorrespondingAuthor like '%"+corrAuth+"%'";
-                        if(!coAuthInt.equals("")){
-                            q+=" and CoAuthorInternal like '%"+coAuthInt+"%'";
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else if(corrAuth.equals("")){
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else if(corrAuth.equals("")){
-                        if(!coAuthInt.equals("")){
-                            q+=" and CoAuthorInternal like '%"+coAuthInt+"%'";
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else if(corrAuth.equals("")){
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    flag=true;
                 }
-                else if(name.equals("")){
-                    if(!corrAuth.equals("")){
-                        q+=" CorrespondingAuthor like '%"+corrAuth+"%'";
-                        if(!coAuthInt.equals("")){
-                            q+=" and CoAuthorInternal like '%"+coAuthInt+"%'";
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else if(corrAuth.equals("")){
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                if(!corrAuth.equals("")){
+                    if(flag){
+                        q+=" and ";
                     }
-                    else if(corrAuth.equals("")){
-                        if(!coAuthInt.equals("")){
-                            q+=" CoAuthorInternal like '%"+coAuthInt+"%'";
-                            if(!coAuthExt.equals("")){
-                                q+=" and CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else if(corrAuth.equals("")){
-                            if(!coAuthExt.equals("")){
-                                q+=" CoAuthorExternal like '%"+coAuthExt+"%'";
-                                if(!page.equals("")){
-                                    q+=" and PageNumber='"+page+"'";
-                                    if(!date1.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")&&date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                            }
-                            else if(coAuthExt.equals("")){
-                                if(!page.equals("")){
-                                    q+=" PageNumber='"+page+"'";
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" and Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                }
-                                else if(page.equals("")){
-                                    if(!date1.equals("")&&!date2.equals("")){
-                                        q+=" Date between '"+date1+"' and '"+date2+"'";
-                                        if(!loc.equals("")){
-                                            q+=" and Location like '%"+loc+"%'";
-                                        }
-                                    }
-                                    else if(date1.equals("")||date2.equals("")){
-                                        if(!loc.equals("")){
-                                            q+=" Location like '%"+loc+"%'";
-                                        }
-                                        else{
-                                            JOptionPane.showMessageDialog(null,"Not Enough Input Given");
-                                            System.exit(0);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    q+="CorrespondingAuthor like '%"+corrAuth+"%'";
+                    flag=true;
                 }
+                if(!coAuthInt.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="CoAuthorInternal like '%"+coAuthInt+"%'";
+                    flag=true;
+                }
+                if(!coAuthExt.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="CoAuthorExternal like '%"+coAuthExt+"%'";
+                    flag=true;
+                }
+                if(!page.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="PageNumber like '%"+page+"%'";
+                    flag=true;
+                }
+                if(!date1.equals("") && !date2.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="Date between '"+date1+"' and '"+date2+"'";
+                    flag=true;
+                }
+                else if(!date1.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="Date like '%"+date1+"%'";
+                    flag=true;
+                }
+                else if(!date2.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="Date like '%"+date2+"%'";
+                    flag=true;
+                }
+                if(!loc.equals("")){
+                    if(flag){
+                        q+=" and ";
+                    }
+                    q+="Location like '%"+loc+"%'";
+                    flag=true;
+                }
+                if(!flag){
+                    q="select * from conference";
+                }
+
                 ResultSet rest=obj.stm.executeQuery(q);
             while(rest.next()){
                 y[i][j++]=rest.getString("Name");
@@ -649,7 +197,6 @@ public class FindConferences extends JFrame implements ActionListener{
                 i++;
                 j=0;
                 
-
             }
             t=new JTable(y,x);
             t.setFont(f);
