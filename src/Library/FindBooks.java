@@ -631,7 +631,7 @@ public class FindBooks extends JFrame implements ActionListener{
                                             q+=" Date between '"+date1+"' and '"+date2+"'";
                                         }
                                         else{
-                                            JOptionPane.showMessageDialog(null,"No Input Given");
+                                            JOptionPane.showMessageDialog(null,"Not Enough Input Given");
                                             System.exit(0);
                                         }
                                     }

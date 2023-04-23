@@ -1152,7 +1152,7 @@ public class FindBookChapters extends JFrame implements ActionListener{
                                                 q+=" Date between '"+date1+"' and '"+date2+"'";
                                             }
                                             else if(date1.equals("") && date2.equals("")){
-                                                JOptionPane.showMessageDialog(null,"No Input Given");
+                                                JOptionPane.showMessageDialog(null,"Not Enough Input Given");
                                                 System.exit(0);
                                             }
                                         }
