@@ -164,14 +164,11 @@ public class TablesCreate extends javax.swing.JFrame {
        aa=obj.stm.executeUpdate(q7);
        aa=obj.stm.executeUpdate(q8);
        aa=obj.stm.executeUpdate(q9);
-       if(aa==1){
-                    JOptionPane.showMessageDialog(null, "Tables created");
-                    this.setVisible(false);
-                }    
+       JOptionPane.showMessageDialog(null, "Database and Tables created");
        
        }
        catch(Exception e){
-           e.printStackTrace();
+           JOptionPane.showMessageDialog(null, e);
        }
        
     }                                        
