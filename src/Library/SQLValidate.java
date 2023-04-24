@@ -210,7 +210,7 @@ public class SQLValidate extends javax.swing.JFrame {
             this.setVisible(false);
         }
         else{
-            new NewIndex().setVisible(true);
+            new TablesCreate().setVisible(true);
             this.setVisible(false);
         }
     }                                        
@@ -224,7 +224,7 @@ public class SQLValidate extends javax.swing.JFrame {
     }                                           
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    new NewIndex().setVisible(true);
+    new TablesCreate().setVisible(true);
     this.setVisible(false);// TODO add your handling code here:
     }                                        
 
