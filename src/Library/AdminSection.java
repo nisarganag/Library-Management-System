@@ -78,7 +78,7 @@ public class AdminSection extends JFrame implements ActionListener{
             new DeleteFaculty().setVisible(true);
         }
         else if(comnd.equals("Logout")){
-            this.dispose();
+            System.exit(0);
             
         }
     }

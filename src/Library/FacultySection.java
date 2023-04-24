@@ -66,7 +66,7 @@ public class FacultySection extends JFrame implements ActionListener{
             new FindPublicationType().setVisible(true);
         }
         else if(comnd.equals("Logout")){
-            this.dispose();
+            System.exit(0);
             
         }
     }
