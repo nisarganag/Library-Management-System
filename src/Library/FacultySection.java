@@ -17,9 +17,7 @@ public class FacultySection extends JFrame implements ActionListener{
         f1=new Font("Segoe UI",Font.PLAIN,23);
 
         ImageIcon ic=new ImageIcon(ClassLoader.getSystemResource("Library/icon/library.png"));
-        Image img=ic.getImage().getScaledInstance(1500,800,Image.SCALE_DEFAULT);
-        ImageIcon ic1=new ImageIcon(img);
-        l1=new JLabel(ic1);
+        l1=new JLabel(ic);
 
         JMenuBar m1=new JMenuBar();
         JMenu men1=new JMenu("Add Info");
