@@ -155,15 +155,15 @@ public class TablesCreate extends javax.swing.JFrame {
        String q7="create table conference(Name varchar(50) not null,CorrespondingAuthor varchar(50) not null,CoAuthorInternal varchar(500),CoAuthorExternal varchar(500),PageNumber varchar(50),Date varchar(50) not null,Location varchar(50));";
        String q8="create table journal(Name varchar(50) not null,CorrespondingAuthor varchar(50) not null,CoAuthorInternal varchar(500),CoAuthorExternal varchar(500),PageNumber varchar(50),VolumeNumber varchar(50) not null,IssueNumber varchar(50) not null,Date varchar(50) not null);";
        String q9="create table other(Name varchar(50) not null,CorrespondingAuthor varchar(50) not null,CoAuthorInternal varchar(500),CoAuthorExternal varchar(500),PageNumber varchar(50),VolumeNumber varchar(50),IssueNumber varchar(50),ChapterNumber varchar(50),ISBNNumber varchar(50),Location varchar(50),Publisher varchar(50),Date varchar(50));";
-       int aa=obj.stm.executeUpdate(q);
-       aa=obj.stm.executeUpdate(q2);
-       aa=obj.stm.executeUpdate(q3);
-       aa=obj.stm.executeUpdate(q4);
-       aa=obj.stm.executeUpdate(q5);
-       aa=obj.stm.executeUpdate(q6);
-       aa=obj.stm.executeUpdate(q7);
-       aa=obj.stm.executeUpdate(q8);
-       aa=obj.stm.executeUpdate(q9);
+       obj.stm.executeUpdate(q);
+       obj.stm.executeUpdate(q2);
+       obj.stm.executeUpdate(q3);
+       obj.stm.executeUpdate(q4);
+       obj.stm.executeUpdate(q5);
+       obj.stm.executeUpdate(q6);
+       obj.stm.executeUpdate(q7);
+       obj.stm.executeUpdate(q8);
+       obj.stm.executeUpdate(q9);
        JOptionPane.showMessageDialog(null, "Database and Tables created");
        
        }
