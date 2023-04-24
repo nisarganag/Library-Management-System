@@ -6,19 +6,20 @@ import java.sql.*;
 public class ConnectionClass {
     Connection con;
     Statement stm;
+    Encryption enc=new Encryption();
     ConnectionClass(){
       
         try {
             File file = new File("username.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
             String user=br.readLine();
-            String subString1=user.substring(4, user.length()-4);
+            String decryptedUsername=enc.decrypt(user);
             File file2 = new File("password.txt");
             BufferedReader br2 = new BufferedReader(new FileReader(file2));
             String pass=br2.readLine();
-            String subString2=pass.substring(4, pass.length()-4);
+            String decryptedPassword=enc.decrypt(pass);
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Library",subString1,subString2);
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Library",decryptedUsername,decryptedPassword);
             stm=con.createStatement();
             br.close();
             br2.close();

@@ -176,18 +176,20 @@ public class SQLValidate extends javax.swing.JFrame {
         String username = jTextField1.getText();
         char[] pass=jPasswordField1.getPassword();
         String password=new String(pass);
+        Encryption enc=new Encryption();
         
         try {
-            
+            String encryptedUsername=enc.encrypt(username);
+            String encryptedPassword=enc.encrypt(password);
             File file = new File("username.txt");
             file.createNewFile();
             File file2 = new File("password.txt");
             file2.createNewFile();
             // Write data to the file
             FileWriter writer = new FileWriter(file);
-            writer.write("toor"+username+"toor");
+            writer.write(encryptedUsername);
             FileWriter writer2 = new FileWriter(file2);
-            writer2.write("ssap"+password+"ssap");
+            writer2.write(encryptedPassword);
             writer.flush();
             writer.close();
             writer2.flush();
