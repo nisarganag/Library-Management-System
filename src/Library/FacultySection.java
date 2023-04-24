@@ -13,8 +13,8 @@ public class FacultySection extends JFrame implements ActionListener{
         setSize(1500,800);
 
         
-        f=new Font("Arial",Font.BOLD,25);
-        f1=new Font("Arial",Font.BOLD,20);
+        f=new Font("Segoe UI",Font.PLAIN,28);
+        f1=new Font("Segoe UI",Font.PLAIN,23);
 
         ImageIcon ic=new ImageIcon(ClassLoader.getSystemResource("Library/icon/library.png"));
         Image img=ic.getImage().getScaledInstance(1500,800,Image.SCALE_DEFAULT);
